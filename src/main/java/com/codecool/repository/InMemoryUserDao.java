@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 @Repository
-public class InMemoryUserDao implements UserDao {
+public class InMemoryUserDao implements Dao<User> {
     private final Map<Long, User> data = new TreeMap<>();
     private long lastId = 1L;
 
