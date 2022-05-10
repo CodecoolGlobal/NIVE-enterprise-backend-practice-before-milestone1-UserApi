@@ -38,4 +38,15 @@ public class UserController {
     public void deleteById(@PathVariable("id") Long id) {
         userService.deleteById(id);
     }
+
+    @GetMapping("/users/enabled")
+    public List<User> findEnabledUsers() {
+        return userService.findEnabledUsers();
+    }
+
+    @GetMapping(value = "/users", params = {"hasRole"})
+    public List<User> findUsersByRole(@RequestParam("hasRole") String role) {
+        return userService.findUsersByRole(role);
+
+    }
 }
