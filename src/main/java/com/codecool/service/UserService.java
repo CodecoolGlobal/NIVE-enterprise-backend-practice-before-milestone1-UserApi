@@ -1,7 +1,7 @@
 package com.codecool.service;
 
 import com.codecool.model.User;
-import com.codecool.repository.InMemoryUserDao;
+import com.codecool.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    InMemoryUserDao userDao;
+    UserDao userDao;
 
     public List<User> findAll() {
         return userDao.findAll();
