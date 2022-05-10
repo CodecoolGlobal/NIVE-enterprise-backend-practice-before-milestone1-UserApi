@@ -3,13 +3,13 @@ package com.codecool.repository;
 import com.codecool.model.User;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 @Repository
 public class InMemoryUserDao {
-    private Map<Long, User> data = new HashMap<>();
+    private Map<Long, User> data = new TreeMap<>();
     private long lastId = 1L;
 
     public List<User> findAll() {
@@ -17,7 +17,7 @@ public class InMemoryUserDao {
     }
 
     public Long save(User user) {
-        if(user.getId() == null) user.setId(lastId++);
+        if (user.getId() == null) user.setId(lastId++);
         data.put(user.getId(), user);
         return user.getId();
     }
